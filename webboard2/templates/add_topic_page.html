@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container">
+   
+    <form action="/add_topic2" method = "POST" >
+         <input type="hidden" class="form-control" name="id_room" value="{{ id_room }}"  >
+         <div class="form-group">
+           <label for="name">Room :</label>
+            <input type="text" class="form-control" name="id_room" value="{{ id_room }}" disabled >
+        </div>
+        <div class="form-group">
+            <label for="name">Topic:</label>
+            <input type="text" class="form-control" name="topic">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Content :</label>
+            <input type="text" class="form-control" name="content">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+{% endblock %}

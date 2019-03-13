@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div class="container">
+        <h2>Room : {{ id_room }}</h2>
+        <p>detail</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Topic</th>
+                    <th>Topic</th>
+                    <th>Content</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                  {% for row in select_data %}
+                <tr>
+                    <td><a href="/show_comment/{{ row["id_topic"] }}">{{ row["id_topic"]}}</a></td>
+                    <td><a href="/show_comment/{{ row["id_topic"] }}"> {{ row["topic"]}} </a></a></td>
+                    <td>{{ row["content"]}}</td>
+
+                    <td>
+                        <a href="/update1/{{ row["id_topic"] }}" class="btn btn-warning" >Edit</a>
+
+                        <a href="/delete_topic/{{ row["id_topic"] }}/{{ id_room }}" class="btn btn-danger" >Delete</a></td>
+
+                </tr>
+                  {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/add_topic1/{{ id_room }}" class="btn btn-primary">เพิ่มหัวข้อใหม่</a>
+        <a href="/" class="btn btn-primary">Home</a>
+    </div>
+
+{% endblock %}
